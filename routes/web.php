@@ -12,9 +12,11 @@ use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
+use App\Models\Employee;
 
 Route::get('/', function () {
-    return view('dashboard');
+    $latestEmployee = Employee::latest('id')->first();
+    return view('dashboard', compact('latestEmployee'));
 })->middleware(['auth'])->name('dashboard');
 
 Route::middleware('guest')->group(function () {
@@ -56,5 +58,6 @@ Route::middleware('auth')->group(function () {
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/', [EmployeeController::class, 'store']);
+    Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
 });
 

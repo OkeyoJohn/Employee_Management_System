@@ -30,4 +30,9 @@ class EmployeeController extends Controller
 
         return redirect()->route('dashboard')->with('success', 'Employee created successfully.');
     }
+
+    public function show(Employee $employee)
+    {
+        return view('EmployeeDetails', compact('employee'));
+    }
 }

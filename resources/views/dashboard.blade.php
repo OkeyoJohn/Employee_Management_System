@@ -233,6 +233,24 @@
                             Add Employee
                         </button>
 
+
+                        @if(isset($latestEmployee))
+                            <a
+                                href="{{ route('employees.show', $latestEmployee) }}"
+                                class="inline-flex items-center justify-center w-full md:w-auto px-8 py-3 bg-gray-800 hover:bg-gray-900 text-white font-semibold rounded-xl transition duration-300 shadow-lg ml-4"
+                            >
+                                Show Latest Employee Details
+                            </a>
+                        @else
+                            <button
+                                type="button"
+                                disabled
+                                class="inline-flex items-center justify-center w-full md:w-auto px-8 py-3 bg-gray-300 text-gray-600 font-semibold rounded-xl shadow-lg ml-4 cursor-not-allowed"
+                            >
+                                No Employee Yet
+                            </button>
+                        @endif
+
                     </div>
 
                 </form>
