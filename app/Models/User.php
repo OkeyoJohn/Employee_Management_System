@@ -29,4 +29,11 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function isAdmin(): bool
+    {
+        $emails = array_filter(array_map('trim', explode(',', strtolower(env('ADMIN_EMAILS', 'test@example.com')))));
+
+        return in_array(strtolower($this->email), $emails, true);
+    }
 }

@@ -59,5 +59,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/', [EmployeeController::class, 'store']);
     Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
+    Route::get('employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
+    Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
+    Route::get('EmployeeView', function () {
+        $employee = Employee::latest('id')->first();
+
+        if (! $employee) {
+            return redirect()->route('dashboard');
+        }
+
+        return redirect()->route('employees.show', $employee);
+    })->name('EmployeeView');
 });
 

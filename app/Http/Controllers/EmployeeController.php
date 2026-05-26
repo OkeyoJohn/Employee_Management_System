@@ -31,8 +31,33 @@ class EmployeeController extends Controller
         return redirect()->route('dashboard')->with('success', 'Employee created successfully.');
     }
 
+    protected function ensureAdmin(): void
+    {
+        if (! auth()->user()?->isAdmin()) {
+            abort(403);
+        }
+    }
+
     public function show(Employee $employee)
     {
-        return view('EmployeeDetails', compact('employee'));
+        $this->ensureAdmin();
+
+        return view('EmployeeView', compact('employee'));
+    }
+
+    public function edit(Employee $employee)
+    {
+        $this->ensureAdmin();
+
+        return redirect()->route('employees.show', $employee);
+    }
+
+    public function destroy(Employee $employee)
+    {
+        $this->ensureAdmin();
+
+        $employee->delete();
+
+        return redirect()->route('dashboard')->with('success', 'Employee deleted successfully.');
     }
 }
