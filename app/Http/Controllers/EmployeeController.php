@@ -7,6 +7,70 @@ use Illuminate\Http\Request;
 
 class EmployeeController extends Controller
 {
+    public function index(Request $request)
+    {
+        $query = Employee::query();
+
+        if ($search = trim($request->input('search', ''))) {
+            $query->where(function ($q) use ($search) {
+                $q->where('first_name', 'like', "%{$search}%")
+                  ->orWhere('last_name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%")
+                  ->orWhere('position', 'like', "%{$search}%");
+            });
+        }
+
+        if ($department = $request->input('department')) {
+            $query->where('department', $department);
+        }
+
+        $status = $request->input('status');
+        if ($status === 'inactive' || $status === 'on_leave') {
+            $query->whereRaw('0 = 1');
+        }
+
+        $sortBy = $request->input('sort_by', 'name');
+        $sortDir = $request->input('sort_dir', 'asc') === 'desc' ? 'desc' : 'asc';
+
+        switch ($sortBy) {
+            case 'department':
+                $query->orderBy('department', $sortDir);
+                break;
+            case 'position':
+                $query->orderBy('position', $sortDir);
+                break;
+            case 'hired_at':
+                $query->orderBy('hire_date', $sortDir);
+                break;
+            case 'status':
+                $query->orderBy('hire_date', $sortDir);
+                break;
+            case 'name':
+            default:
+                $query->orderBy('last_name', $sortDir)
+                      ->orderBy('first_name', $sortDir);
+                break;
+        }
+
+        $employees = $query->paginate(12)->withQueryString();
+
+        $departments = Employee::query()
+            ->select('department')
+            ->distinct()
+            ->orderBy('department')
+            ->pluck('department')
+            ->all();
+
+        $stats = [
+            'total' => Employee::count(),
+            'active' => Employee::count(),
+            'on_leave' => 0,
+            'inactive' => 0,
+        ];
+
+        return view('EmployeeList', compact('employees', 'departments', 'stats'));
+    }
+
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -29,6 +93,11 @@ class EmployeeController extends Controller
         Employee::create($validatedData);
 
         return redirect()->route('dashboard')->with('success', 'Employee created successfully.');
+    }
+
+    public function create()
+    {
+        return redirect()->route('dashboard');
     }
 
     protected function ensureAdmin(): void

@@ -591,7 +591,7 @@
     <header class="topbar">
         <nav class="breadcrumb">
             <span class="breadcrumb-sep">›</span>
-            <a href="#">Employees</a>
+            <a href="{{ route('employees.index') }}">Employees</a>
             <span class="breadcrumb-sep">›</span>
             <span class="breadcrumb-current">{{ $employee->first_name }} {{ $employee->last_name }}</span>
         </nav>

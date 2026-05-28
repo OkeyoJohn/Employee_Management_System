@@ -58,6 +58,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/', [EmployeeController::class, 'store']);
+    Route::get('employees', [EmployeeController::class, 'index'])->name('employees.index');
+    Route::get('employees/create', [EmployeeController::class, 'create'])->name('employees.create');
     Route::get('employees/{employee}', [EmployeeController::class, 'show'])->name('employees.show');
     Route::get('employees/{employee}/edit', [EmployeeController::class, 'edit'])->name('employees.edit');
     Route::delete('employees/{employee}', [EmployeeController::class, 'destroy'])->name('employees.destroy');
@@ -70,5 +72,11 @@ Route::middleware('auth')->group(function () {
 
         return redirect()->route('employees.show', $employee);
     })->name('EmployeeView');
+
+    Route::get('EmployeeList', function () {
+        $employees = Employee::all();
+
+        return view('EmployeeList', compact('employees'));
+    })->name('EmployeeList');
 });
 
