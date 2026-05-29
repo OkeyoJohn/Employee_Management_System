@@ -27,7 +27,7 @@
         }
 
         body {
-            background: rgba(233, 233, 218, 0.23);
+            background: #f7f4f0;
             color: var(--text);
             font-family: 'DM Sans', sans-serif;
             min-height: 100vh;
@@ -50,19 +50,18 @@
         }
 
         .sidebar-logo {
-            padding: 0 24px 28px;
-            border-bottom: 1px solid var(--border);
+            padding: 32px 28px 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+        .sidebar-logo span {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            font-size: 1.4rem;
+            color: #fff;
+            letter-spacing: -0.3px;
         }
 
-        .sidebar-logo span {
-            font-family: 'Syne', sans-serif;
-            font-size: 1.25rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+        .sidebar-logo span em { color: #b8924a; font-style: normal; }
 
         .sidebar-nav { padding: 20px 12px; flex: 1; }
 
@@ -83,7 +82,7 @@
             gap: 10px;
             padding: 10px 12px;
             border-radius: 8px;
-            color: var(--muted);
+            color:white; 
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
@@ -92,7 +91,7 @@
         }
 
         .nav-item:hover { background: var(--card); color: var(--text); }
-        .nav-item.active { background: rgba(91,106,240,.15); color: var(--accent); }
+        .nav-item.active { background: rgba(91,106,240,.15); color: white; }
 
         .nav-icon { width: 18px; text-align: center; }
 
@@ -119,6 +118,7 @@
             font-size: 1.75rem;
             font-weight: 700;
             letter-spacing: -0.5px;
+            color: #b8924a;
         }
 
         .page-sub { color: var(--muted); font-size: 0.875rem; margin-top: 4px; }
@@ -146,7 +146,7 @@
         .btn-danger:hover { background: rgba(239,68,68,.25); }
         .btn-sm { padding: 6px 14px; font-size: 0.8rem; }
 
-        /* ── Stat cards ── */
+        /*  Stat cards  */
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -171,19 +171,20 @@
         }
         .stat-card.c-total::before  { background: white; }
         .stat-card.c-active::before { background: var(--green); }
-        .stat-card.c-leave::before  { background: var(--amber); }
+        .stat-card.c-leave::before  { background: #ddd2c3; }
         .stat-card.c-inactive::before { background: var(--red); }
 
         .stat-label { font-size: 0.75rem; color: white; font-weight: 500; text-transform: uppercase; letter-spacing: .8px; }
         .stat-value { font-family: 'Syne', sans-serif; font-size: 2rem; font-weight: 700; margin-top: 6px; }
-        .stat-card.c-active .stat-value  { color: var(--green); }
-        .stat-card.c-leave .stat-value   { color: var(--amber); }
-        .stat-card.c-inactive .stat-value { color: var(--red); }
+        .stat-card.c-active .stat-value  { color: #ddd2c3; }
+        .stat-card.c-leave .stat-value   { color: #ddd2c3; }
+        .stat-card.c-inactive .stat-value { color: #ddd2c3; }
+        .stat-card.c-total .stat-value { color: #ddd2c3; }
 
-        /* ── Filters ── */
+        /*  Filters  */
         .filters-bar {
-            background: black;
-            border: 1px solid var(--border);
+            background: #ddd2c3;
+            border: 1px solid #ddd2c3;
             border-radius: var(--radius);
             padding: 16px 20px;
             display: flex;
@@ -205,8 +206,8 @@
 
         input[type="text"],
         select {
-            background: var(--surface);
-            border: 1px solid var(--border);
+            background: #c7a87d;
+            border: 1px solid #ddd2c3;
             border-radius: 8px;
             color: white;
             font-family: 'DM Sans', sans-serif;
@@ -223,7 +224,7 @@
 
         .filter-group { display: flex; gap: 10px; }
 
-        /* ── Flash message ── */
+        /*  Flash message  */
         .flash {
             display: flex;
             align-items: center;
@@ -237,17 +238,17 @@
             margin-bottom: 20px;
         }
 
-        /* ── Table ── */
+        /*  Table  */
         .table-wrap {
-            background: black;
-            border: 1px solid black;
+            background: #f7f4f0;
+            border: 1px solid #a09689;
             border-radius: var(--radius);
             overflow: hidden;
         }
 
         table { width: 100%; border-collapse: collapse; }
 
-        thead { background: black; }
+        thead { background: #c7a87d; }
 
         th {
             padding: 13px 18px;
@@ -256,13 +257,13 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: white;
+            color: black;
             border-bottom: 1px solid var(--border);
             white-space: nowrap;
         }
 
         th a {
-            color: inherit;
+            color: black;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
@@ -277,10 +278,12 @@
             font-size: 0.875rem;
             border-bottom: 1px solid var(--border);
             vertical-align: middle;
+            color: black;
+            border-bottom: 1px solid #bba589;
         }
 
         tr:last-child td { border-bottom: none; }
-        tr:hover td { background: rgba(255,255,255,.02); }
+        tr:hover td { background: #bba589; }
 
         /* employee cell */
         .emp-cell { display: flex; align-items: center; gap: 12px; }
@@ -317,7 +320,7 @@
 
         .dept-tag {
             display: inline-block;
-            background: rgba(91,106,240,.12);
+            background: rgba(221, 193, 99, 0.72);
             color:white;
             border-radius: 6px;
             padding: 3px 9px;
@@ -386,8 +389,7 @@
 {{-- ── Sidebar ── --}}
 <aside class="sidebar">
     <div class="sidebar-logo">
-        <span>staffflow
-</span>
+        <span>staff<em>flow</em></span>
     </div>
     <nav class="sidebar-nav">
         <div class="nav-label">Main</div>
@@ -395,7 +397,7 @@
             <span class="nav-icon">⊞</span> Dashboard
         </a>
         <a class="nav-item active" href="{{ route('employees.index') }}">
-            <span class="nav-icon">👥</span> Employees
+            <span class="nav-icon"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></span> Employees
         </a>
 
 

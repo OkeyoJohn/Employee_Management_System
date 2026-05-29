@@ -7,7 +7,7 @@
     <title>{{ $employee->first_name }} {{ $employee->last_name }} — StaffFlow</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+       
 
         :root {
             --ink:       #0e0c0a;
@@ -30,7 +30,7 @@
             display: flex;
         }
 
-        /* ── SIDEBAR ─────────────────────────────────── */
+        /* SIDEBAR  */
         .sidebar {
             width: 220px;
             min-height: 100vh;
@@ -80,10 +80,10 @@
         }
         .u-name { font-size: 0.75rem; color: rgba(255,255,255,0.5); }
 
-        /* ── MAIN ────────────────────────────────────── */
+        /*  MAIN  */
         .main { margin-left: 220px; flex: 1; display: flex; flex-direction: column; }
 
-        /* ── TOPBAR ──────────────────────────────────── */
+        /*  TOPBAR  */
         .topbar {
             height: 58px;
             background: var(--paper);
@@ -124,10 +124,10 @@
         .btn-danger { background: transparent; border: 1px solid var(--rule); color: var(--danger); }
         .btn-danger:hover { background: #fff0f0; border-color: var(--danger); }
 
-        /* ── PAGE ────────────────────────────────────── */
+        /*  PAGE  */
         .page { padding: 0; flex: 1; }
 
-        /* ── HERO BAND ───────────────────────────────── */
+        /* HERO BAND */
         .hero {
             background: black;
             position: relative;
@@ -248,7 +248,7 @@
         }
         .hero-chip svg { width: 12px; height: 12px; }
 
-        /* ── CONTENT AREA ────────────────────────────── */
+        /*  CONTENT AREA  */
         .content {
             padding: 40px 48px 60px;
             display: grid;
@@ -257,7 +257,7 @@
             align-items: start;
         }
 
-        /* ── DETAIL CARD ─────────────────────────────── */
+        /*  DETAIL CARD */
         .card {
             background: var(--paper);
             border: 1px solid var(--rule);
@@ -355,7 +355,7 @@
             border: 1px solid rgba(184,146,74,0.2);
         }
 
-        /* ── SIDEBAR RIGHT ───────────────────────────── */
+        /*  SIDEBAR RIGHT  */
         .right-col { display: flex; flex-direction: column; gap: 20px; }
 
         /* Tenure card */
@@ -485,7 +485,7 @@
         }
         .id-field-value.mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.75rem; }
 
-        /* ── DELETE MODAL ────────────────────────────── */
+        /*  DELETE MODAL  */
         .modal-overlay {
             position: fixed; inset: 0;
             background: rgba(14,12,10,0.6);
@@ -546,7 +546,7 @@
        
         <a href="#" class="nav-item active">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-            Employees
+            Employee
         </a>
         <a href="#" class="nav-item">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
@@ -561,11 +561,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
             Reports
         </a>
-        <div class="nav-sec" style="margin-top:12px">System</div>
-        <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0112 2"/></svg>
-            Settings
-        </a>
+     
     </nav>
 
 
