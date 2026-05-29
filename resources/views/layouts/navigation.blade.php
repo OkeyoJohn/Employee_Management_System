@@ -19,8 +19,8 @@
             "><span style= "font-family: 'Cormorant Garamond', serif;
             font-weight: 700;
             font-size: 1.4rem;
-            color: #524109;
-            letter-spacing: -0.3px;">staff<em>flow</em></span></div>
+            color: #2e2a19e8;
+            letter-spacing: -0.3px;">staff<em style="color: #b3971de8;">flow</em></span></div>
                 </div>
 
                 <!-- Navigation Links -->
